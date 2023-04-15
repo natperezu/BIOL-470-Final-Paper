@@ -1,0 +1,241 @@
+\documentclass[12pt,conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{caption}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Enhancer Sequence Generation and Analysis of Whole Genome Sequence of Different Rice Varieties of \emph {Oryza} Genus Through the Use of Different Neural Network Algorithms\\}
+    
+\author{\IEEEauthorblockN{1\textsuperscript{st} Josh Bolema}
+\IEEEauthorblockA{\textit{Faculty of Natural and Applied Sciences, Computer Science.} \\
+\textit{Trinity Western University}\\
+Langley, Canada \\
+Josh.Bolema@mytwu.ca}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Meetkumar Patel}
+\IEEEauthorblockA{\textit{Faculty of Natural and Applied Sciences, Biology.} \\
+\textit{Trinity Western University}\\
+Langley, Canada \\
+Meetkumar.Patel@mytwu.ca}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Natalia Perez Useda}
+\IEEEauthorblockA{\textit{Faculty of Natural and Applied Sciences, Interdisciplinary Biotechnology and Business Administration} \\
+\textit{Trinity Western University}\\
+Langley, Canada \\
+Natalia.PerezUseda@mytwu.ca}
+}
+
+\maketitle
+
+\begin{abstract}
+Many countries across the world struggle with food quality. In recent years due to many factors like climate change or global warming, as well as the negligence in agricultural practices, the growth and production of commercial plants has been affected, specifically in the amount of yield they produce of the desired product. This has been directly linked to enhancer genes, or promoter genes of these plants. Since many commercial crops have varying growth patterns and produce different amounts of yield, understanding the gene expression patterns of these plants can aid in developing tools to increase and upkeep production of these plants. Rice is an important part of the global diet with more than 510 million metric tons of rice produced per year. The use of neural network algorithms such as RiceENN, IEnhancer, and BiREn to predict enhancer sequences can be a helpful tool to understand gene expression patterns in rice and ensure quality and integrity of rice crops can keep up with growing environmental and agricultural challenges. 
+\end{abstract}
+
+\begin{IEEEkeywords}
+Enhancer, Neural, Networks, Rice
+\end{IEEEkeywords}
+
+\section{Introduction}
+Gene expression is an important part of understanding the biological mechanisms which allows an organism to work properly \cite{b1}. The regulation and understanding of this complex process is important as it regulates the production of proteins and the way in which an organism works \cite{b1}. Predicting and classifying the genes responsible for specific production patterns in rice crops can be a useful tool in overcoming challenges with agricultural production of not only rice crops, but most commercial crops in the world \cite{b2}. Population growth trends are rapidly accelerating with a projection to reach 10.4 billion people during the 2080's \cite{b3}. In 2022, South-Eastern Asia accounted for 29\% of the world population, while Central and Southern Asia accounted for 26\% \cite{b3}. These two regions in Asia account for most of the world population, and are also amongst the regions with higher consumption of rice \cite{b4}. In a year, each person in the world consumes more than 50 kilograms of rice \cite{b4}. However, China and India alone account for more than 50\% of the consumption of rice \cite{b4}. Moreover, current trends in Climate Change show that the rate of warming has increased twice as fast since 1981 \cite{b5}. Additionally, every year since 2010 has been recorded as the warmest year in historical record \cite{b5}. Increased heating around the world is impacting the environment and affecting habitat ranges for both plants and animals \cite{b5}. The variability of climate has impacted agriculture production and has imposed risks and constraints on the horticultural production system \cite{b6}. The horticulture sector, therefore, needs to find alternative ways in which to keep up with rice production and overcome the challenges of climate change to regulate and provide adequate and nutritional rice crops \cite{b6}. 
+
+\hspace{1pt}
+
+Enhancer genes are genes of interest which control gene expression of organisms \cite{b7}. Identification and classification of enhancer genes in rice can aid in modification of gene expression and control yield of nutrients, crop production, and even resistance to various environmental factors \cite{b7}. Although enhancer genes can be found near a gene of interest, they tend to have high locational variation and are free scattering in non-encoding genomes, this makes it a crucial but difficult work in understanding biological models of plants \cite{b7}. Moreover, efficiency of enhancer genes is independent of their position or orientation to the gene \cite{b7}. For this reason, locating enhancer genes can prove to be difficult, especially with organisms that have a large genome \cite{b7}. To put this into perspective, the rice genome is the smallest of the cereal crop genomes to be sequenced, but it is the third largest public genome project, behind the human and mouse genome \cite{b8}. For example, one look at the NCBI Nucleotide Database of the \emph{Oryza punctata} genome shows that the whole genome sequence of one chromosome contains around 48,196,116 base pairs of linear DNA \cite{b9}. Rice species have 12 chromosomes, equating to approximately 576,000,000 base pairs of linear DNA per rice species, minimum. Keeping in mind that although there is ample knowledge and research on the gene expression of rice, classification and identification of enhancer genes remains difficult due to the free-scattering nature of these genes \cite{b7}. Additionally, enhancer gene sequences are generally short sequences, between 50 to 1500 base pairs \cite{b7}. Therefore, identification of enhancer sequences in rice involves sorting through, and testing of at least 576,000,000 base pairs, only 1500 base pairs at a time. Furthermore, in rice species, enhancers regulate various levels of expression ranging from starch content to grain length \cite{b10}. Given these factors, identification of enhancer sequences is key in delivering groundbreaking strategies that allow for the production of commercial plants that take into consideration the growth and the yield of the plants in a way that overcomes any agro-ecological problems as well as the nature of the plants and the sensitivities it has in the climate it is being grown in. 
+
+\hspace{1pt}
+
+Apart from being the smallest of the genomes of cereal crops, the use of the rice genome for this research is multifaceted \cite{b8}. Research conducted in 2018 showed that a study of the genomes of 13 domesticated and wild relatives of the \emph{Oryza} rice genus shows genetic conservation across the species \cite{b11}. This rice genus has also been widely used as a model system to understand molecular evolution ranging up to 15 million years ago \cite{b11}. Although there were some large-scale arrangements at the chromosomal level of these species, the study highlights the conserved areas of the \emph{Oryza} genus \cite{b11}. Moreover, this genus stands out worldwide, as two species: \emph{Oryza sativa} and \emph{Oryza glaberrima}, were domesticated 10,000 and 3,000 years ago in Asia and Africa respectively \cite{b11}. Today, Asian rice accounts for about 20\% of all human dietary calories \cite{b11}. The following 10 species were chosen from the research conducted by Stein et al, 2018 \cite{b11}. They were chosen due to their genomic similarity \cite{b11}.
+
+\hspace{1pt}
+
+The rise of Machine Learning has been growing steadily in recent years \cite{b12}. With the growing rise of technology, humans have realized that appointing tasks to machines has made their life increasingly efficient \cite{b12}. Machine Learning is defined as the study of algorithms and data sets in a computer system to perform a specific task without being explicitly programmed to do so \cite{b12}. The purpose of Machine Learning, as the name suggests, is to learn from the data it studies \cite{b12}. Given the extent of scientific data, Machine Learning can be applied to extract important information from extensive data sets and provide a prediction based on the data \cite{b12}. This research will employ the use of Machine Learning Neural Network Algorithms, which is meant to mimic the way the human brain works and find patterns and correlations in raw data \cite{b12}. The code for these algorithms are open source and are readily available. 
+
+\hspace{1pt}
+
+BiRen, ricENN, and i-Enhancer-DLRA are all deep learning-based methods used to predict enhancers in DNA sequences. Accessible online and available for use, they are all trained using large datasets of both enhancer and non-enhancer sequences, from which they become able to recognize patterns and make accurate predictions \cite{b13}. Despite having the same objective and general methodology, these three algorithms all have a slightly different approach and varied hybrid architectures for modeling DNA sequences\cite{b10, b13, b14}. Specifically, RicENN uses a convolutional neural network (CNN) where extraction occurs and a recurrent neural network (RNN) for modelling dependencies between said extractions \cite{b13}. Now, although BiRen and i-Enhancer-DRLA also use these two techniques, the specific types of which are different \cite{b13, b14}. This can be demonstrated through BiRen’s use of integrating a CNN and a gated recurrent unit (GRU)-based bidirectional recurrent neural network (BRNN) \cite{b13}. The latter two algorithms are extensions of the RNN that allow past and future inputs (BRNN), (rather than just past like a normal RNN) and enable enhanced memory elements (GRU) \cite{b13}. The specific CNN that the i-Enhancer-DLRA uses is a residual convolutional network, also known as ResNets, which targets the gradient problem that is so often encountered in CNN’s and the bidirectional long short-term memory network (similar to the BRNN) as the specific RNN that is used \cite{b14}. What further makes the i-Enhancer-DLRA unique is the fact that it utilizes both local and global features which is done for the purpose of improving its accuracy \cite{b14}. On the other hand, BiRen and RicENN rely solely on DNA sequence information when predicting these enhancers \cite{b10, b13}
+
+\hspace{1pt}
+
+The aim of this research is to use neural networking algorithms to identify enhancer gene sequences in different species of rice belonging to the \emph{Oryza} genus. Whole genome sequences are readily available on GenBank, a database containing entire genome sequences for various organisms \cite{b9}. Previous research has been conducted on all the three different neural algorithms chosen, with each one of them claiming to have a smaller error percentage than the other \cite{b10, b13, b14}. This research will focus on utilizing all three algorithms and comparing the enhancer sequences highlighted by each algorithm to see if there are any disparities in the results obtained. Comparing and contrasting the results will prove easier by using the genomes of organisms that are closely related and have many similarities in their sequences \cite{b11}.
+
+\hspace{1pt}
+
+The development of studies in Biotechnology and Bioinformatics can provide a plethora of helpful tools in improving the desired growth and yield for various commercial crops, as well as provide solutions to many of the problems that affect the production of commercial crops. Moreover, classification of the enhancer genes responsible for gene expression of rice crops can provide groundbreaking research to keep up with rice production amidst environmental and ecological challenges.
+
+\section{Materials and Methods}
+
+There are several main techniques used to predict enhancer sequences such as comparative genomics, histone modifications, and machine learning algorithms. Our group decided on the third option and tried using machine learning algorithms to predict enhancer sequences. The three specific algorithms we decided to use were BiRen, ricENN, and i-Enhancer-DLRA. Our rationale for choosing three different algorithms is to make for a more comprehensive analysis of the enhancer sequences generated and to compare each predicted result with one another. Now, although these algorithms are similar in what they are meant to accomplish, each of these algorithms uses a slightly different approach to how they do so. As mentioned before, BiRen, for example, uses a CNN with a Gated Recurrent Unit (GRU)-based Bidirectional Recurrent Neural Network (BRNN) architecture and relies solely on DNA sequence information \cite{b13}. RicENN on the other hand uses a hybrid architecture with both CNN and RNN, and also uses a combination of multi-scale convolutional and recurrent units \cite{b10}. Then finally, i-Enhancer-DLRA uses a Residual Convolutional Network (ResNet) with a Bidirectional Long Short-Term Memory Network (LSTM), where it also utilizes both local and global features for improved accuracy \cite{b14}.
+
+\hspace{1pt}
+
+Since the specific algorithms we were using required a lot of computing power, we decided to use a Google Cloud server with an SSH server to run our algorithms. That way, we would be able to run our algorithms much more efficiently and effectively. This process involved creating a virtual machine instance to use as the server and then we connected to it using the SSH protocol. Then we were able to upload our files to the server and they were ready to be used.
+
+\hspace{1pt}
+
+For the i-Enhancer-DLRA, the first step was to install the necessary packages and dependencies such as numpy and scikit. Then, in order to run the algorithm we first had to do training and testing for the algorithm. This first step consists on doing the Enhancer Layer 1 (Identification). This is where the training data is divided, and a random seed is chosen --which was set at 5 in the trial run for this and is there to ensure that the algorithm learns in a consistent and reproducible way by starting from the same initial conditions each time. After this, we performed testing on Enhancer Layer 2 (Classification). The same process from Layer 1 is repeated for Layer 2. After doing these steps, the model was able to be trained and results were given. The issue was the results did not show whether the input data was enhancers or not, but only gave the Accuracy, ROC AUC score, sensitivity, and specificity scores. This tool, therefore serves as an accuracy test, but does not provide the location of enhancer sequences.
+
+\begin{figure}
+
+\end{figure}
+     \begin{center}
+ 
+
+   \includegraphics[width=\linewidth]{biren.png}
+    \captionof{figure}{I-Enhancer Results}
+    \label{fig:my_label}
+\end{center}
+\hspace{1pt}
+
+However, after doing further research on how this algorithm works and what it is designed to do, we figured out that the tool, iEnhancer-CNN, was developed for a human data set and only supports fixed-length (200 bp) sequences for prediction, which is not suitable for the rice enhancer\cite{b10}. With that being said, we still tried to modify the code to use their algorithm so that it would at least work for sending in our own sequences, even if it was not the whole genome. Unfortunately, this did not work and proved to be too difficult of a task with our resources and limited time. 
+
+\hspace{1pt}
+
+The next algorithm we tried was the BiRen model. This model is supposed to work similarly to the iEnhancer model as it first goes through the model training phase where the model is trained on specific data. Then it does model testing where it takes the data that was processed along with the trained model as input and then it predicts enhancer-promoter interactions on this data. Then finally, an output file should be produced with this data which outlines the enhancer sequences found in the genome. However, when we tried to set up the BiRen model we ran into some trouble as well. The problem was not necessarily with the model itself or how it was designed, but rather with the fact that the ftp server that is used to store several input files was down. The three input files missing were: genome.fa (whole genome sequence) EvolutionaryConservation.bw (evolutionary conservation scores across multiple vertebrate species), and deepsea.cpu (pre-trained DeepSEA model that is used for prediction). We also tried to use their temporary fix for the server being down, but unfortunately the files could not be downloaded from the cloud storage service. With that said, we were unable to use BiRen and were forced to ditch both the iEnhancer and BiREN model. 
+
+\hspace{1pt}
+
+Our final algorithm was the RicENN algorithm. This algorithm is used on an online tool that has already been pre-trained and tested for use. This tool did provide success results, as we were able to run it and receive results that showed the Sequence ID, Score(T), Score(F), and the identification of an enhancer sequence. However, we had some limitations. Firstly, since we were using entire genome sequences as input, the input file was too large to be used by the algorithm as it only accepted input of 1000bp or less. This would mean producing a minimum of 5,700 different files and manually input them in the server. Given this setback, we modified our original objective. Instead of using the full genome, a code was written to generate 10 random sequences of 1000 base pairs eahc from the genome and saves them to separate text files in FASTA format. Furthermore, the code was written to include the start base pair and end base pair of the random sequence generated. From that, we were able to send in these FASTA files into the ricENN tool, where we were able to see whether or not each of these generated seqeuences were enhancers as well as their respective T and F scores. Below is an example of the results from the \emph{Oryza barthii} file.
+
+\begin{figure}
+
+\end{figure}
+     \begin{center}
+ 
+
+   \includegraphics[width=\linewidth]{ricenn.png}
+    \captionof{figure}{RicENN Results}
+    \label{fig:my_label}
+\end{center}
+
+\hspace{1pt}
+
+\section{Results and Discussion}
+
+Since BiREN and ienhancer-DLRA were not able to produce any useful information due to error codes in their program, which made them unexecutable, it left RicENN as the only algorithm to produce results for our study. From the results obtained above, three rice species were chosen for analysis: \emph{Oryza barthii}, \emph{Oryza brachyantha} and \emph{Oryza glumaepatula}. RicENN was used as a web-based server program where the bases were put in and the output was in the format shown above in figures 1.1-1.3.
+
+\hspace{1pt}
+
+With further testing, although we were unable use the entire genome of each species or all 3 of the initial algorithms, we were still able to identify parts of the genome to determine whether they were enhancers or not. 
+The a summary of the output which generated 10 random sequences from the entire genome of \emph{Oryza brachyantha} can be seen below:
+
+\begin{figure}
+
+\end{figure}
+     \begin{center}
+ 
+
+   \includegraphics[width=\linewidth]{OB Random Seq.png}
+    \captionof{figure}{I-Enhancer Results. *10 FASTA files in each species, only 3 summaries of one species shown}
+    \label{fig:my_label}
+\end{center}
+
+\hspace{1pt}
+
+The final output contained 10 different FASTA files from each rice species. After running the files in the RicENN model, the following results were compiled into the next 3 tables.
+
+\hspace{1pt}
+
+\begin{table}[htbp]
+\centering
+\caption{\bf \emph{Oryza brachyantha} RicENN Results}
+\begin{tabular}{ccc}
+\hline
+$Seq ID$ & $Score(T)$ $Score(F)$ & $Results$ \\
+\hline
+$Random1$ & $0.663$ / $0.335$ & $Enhancer$ \\
+$Random2$ & $0.819$ / $0.181$ & $Enhancer$ \\
+$Random3$ & $0.745$ / $0.253$ & $Enhancer$ \\
+$Random4$ & $0.344$ / $0.635$ & $Not Enhancer$ \\
+$Random5$ & $0.563$ / $0.439$ & $Enhancer$ \\
+$Random6$ & $0.701$ / $0.284$ & $Enhancer$ \\
+$Random7$ & $0.651$ / $0.363$ & $Enhancer$ \\
+$Random8$ & $0.400$ / $0.591$ & $Not Enhancer$ \\
+$Random9$ & $0.699$ / $0.296$ & $Enhancer$ \\
+$Random10$ & $0.717$  / $0.297$ & $Enhancer$ \\
+\hline
+\end{tabular}
+  \label{tab:shapefunctions}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{\bf \emph{Oryza glumaepatula} RicENN Results}
+\begin{tabular}{ccc}
+\hline
+$Seq ID$ & $Score(T)$ $Score(F)$ & $Results$ \\
+\hline
+$Random1$ & $0.477$ / $0.521$ & $Not Enhancer$ \\
+$Random2$ & $0.991$ / $0.009$ & $Enhancer$ \\
+$Random3$ & $0.757$ / $0.228$ & $Enhancer$ \\
+$Random4$ & $0.446$ / $0.546$ & $Not Enhancer$ \\
+$Random5$ & $0.677$ / $0.321$ & $Enhancer$ \\
+$Random6$ & $0.998$ / $0.002$ & $Enhancer$ \\
+$Random7$ & $0.096$ / $0.904$ & $Not Enhancer$ \\
+$Random8$ & $0.048$ / $0.950$ & $Not Enhancer$ \\
+$Random9$ & $0.273$ / $0.727$ & $Not Enhancer$ \\
+$Random10$ & $0.815$  / $0.176$ & $Enhancer$ \\
+\hline
+\end{tabular}
+  \label{tab:shapefunctions}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{\bf \emph{Oryza barthii} RicENN Results}
+\begin{tabular}{ccc}
+\hline
+$Seq ID$ & $Score(T)$ $Score(F)$ & $Results$ \\
+\hline
+$Random1$ & $0.465$ / $0.528$ & $Not Enhancer$ \\
+$Random2$ & $0.704$ / $0.294$ & $Enhancer$ \\
+$Random3$ & $0.563$ / $0.443$ & $Enhancer$ \\
+$Random4$ & $0.980$ / $0.021$ & $Enhancer$ \\
+$Random5$ & $0.579$ / $0.429$ & $Enhancer$ \\
+$Random6$ & $0.529$ / $0.472$ & $Enhancer$ \\
+$Random7$ & $0.243$ / $0.751$ & $Not Enhancer$ \\
+$Random8$ & $0.955$ / $0.047$ & $Enhancer$ \\
+$Random9$ & $0.085$ / $0.916$ & $Not Enhancer$ \\
+$Random10$ & $0.992$  / $0.009$ & $Enhancer$ \\
+\hline
+\end{tabular}
+  \label{tab:shapefunctions}
+\end{table}
+
+Ten random sequences were used as a representative study for the whole genome, as the primary aim involved testing the ability of machine learning model-based algorithms to predict enhancers in a genome sequence and the return scores for each of these models were to be compared. However, the results from RicENN also provide results that can be interpreted independent of other algorithms as they assign a T and F score to each sequence being tested. T value denotes the true positive rate, and the F value represents the false positive rate. For a given predicted sequence to be considered to contain enhancer genes, the true positive rate should be higher than the false positive rate, as shown in the results above. Therefore, the closer the T value is to 1, the more likely it is that the predicted enhancer sequence, is in fact and enhancer sequence. 
+The main challenge faced during this type of study is that there is no way to determine whether the obtained value are accurate enough as there is no established data set to compare it to, additionally the limitation of RicENN to run only sequences containing 1000 base pairs at a time, limits one’s abilities to get a result for large genomes, for example the \emph{Oryza barthii} genome has about 450 million base pairs. Using the current model, it would take about 150 days of continuous data input to produce results.
+
+
+\section{Conclusion}
+
+Despite numerous trials, we were not able to execute BiREN for our primary objective of determining enhancer sequences in rice species. On the other hand, iEnhancer-DLRA was severely limited to only its own data set leaving no room for analysis using a different data set, such as that of rice species. Only ricENN was able to determine enhancer sequences in the data input, though it had its own difficulties in terms of execution, such as limited input range of 1000 base pairs at a time and not having any output sequence highlighting the enhancer base pairs. However, we were still able to stretch the input data to 100 entries of 1000 base pair sequences at a given time, contrary to single entries of 1000 base pairs. The output, however, could not be modified to highlight the enhancer base pairs in question. This was quickly resolved by modifying the code we wrote to generate 10 random sequences to include start and end base pairs for each random sequence generated. Furthermore, from the original intent of using 10 rice species in the study, the analysis was cut down to 3 species of rice namely\emph{Oryza barthii}, \emph{Oryza brachyantha} and \emph{Oryza glumaepatula} due to time constraints. We were hoping to compare accuracy scores of each of the algorithms mentioned earlier, however due to the inability to run these algorithms the research was incomplete in terms of primary aim. The whole study was severely limited by technology, as the servers are not able to execute large commands involving millions of base pairs, which could further build on our understanding of enhancer gene involvement in plant phylogeny. This research can help future researchers avoid using some of these algorithms in their respective studies while relating to rice species since they have turned out to be not executable. Although, the developers could potentially fix the problem in the future, for now, and for the initial purpose of our research, these algorithms fell short. We believe this type of research should be prioritize given the many challenges the field of horticulture faces both environmentally and ecologically. Identifying and classifying enhancer sequences of various commercial crops, as well as creating a database for confirmed enhancer sequences can provide groundbreaking solutions for food scarcity in challenging conditions. 
+ 
+\begin{thebibliography}{00}
+
+\bibitem{b1} D. Kleftogiannis, P. Kalnis, and V. B. Bajic, “Progress and challenges in Bioinformatics approaches for enhancer identification,” Briefings in Bioinformatics, vol. 17, no. 6, pp. 967–979, 2015. doi: 10.1093/bib/bbv101
+\bibitem{b2} M. Dutt, S. A. Dhekney, L. Soriano, R. Kandel, and J. W. Grosser, “Temporal and spatial control of gene expression in horticultural crops,” Horticulture Research, vol. 1, no. 1, 2014. doi: https://doi.org/10.1038/hortres.2014.47
+\bibitem{b3} United Nations Department of Economic and Social Affairs, Population Division. World Population Prospects 2022: Summary of Results. UN DESA/POP/2022/TR/NO. 3. 2022. Accessed Apr. 10, 2023
+\bibitem{b4} A. Nelson. “Who eats the most rice.” Ricetoday.irri.org. https://ricetoday.irri.org/who-eats-the-most-rice/ (accessed Apr. 10, 2023). 
+\bibitem{b5} NOAA National Centers for Environmental Information (2023). State of the Climate: Global Climate Report for 2022. Accessed Apr. 10, 2023.
+\bibitem{b6} S. K. Malhotra, “Horticultural crops and climate change: A Review,” The Indian Journal of Agricultural Sciences, vol. 87, no. 1, 2017. wos: 000393015200002 
+\bibitem{b7} J. M. Karnuta and P. C. Scacheri, “Enhancers: bridging the gap between gene control and human disease,” Human Molecular Genetics, vol. 27, no. R2, pp. R219–R227, May 2018, doi: 10.1093/hmg/ddy167. 
+\bibitem{b8} N. A. Eckardt, “Sequencing the rice genome,” The Plant Cell, vol. 12, no. 11, pp. 2011–2017, 2000, doi: 10.1105/tpc.12.11.2011 
+\bibitem{b9} ] National Center for Biotechnology Information. [Online]. Available: https://www.ncbi.nlm.nih.gov/. Accessed Apr. 10, 2023. 
+\bibitem{b10} Y. Gao, Y. Chen, H. Feng, Y. Zhang, and Z. Yue, “RicENN: Prediction of Rice Enhancers with Neural Network Based on DNA Sequences,” Interdisciplinary Sciences: Computational Life Sciences, vol. 14, no. 2, pp. 555–565, 2022, doi: 10.1007/s12539-022-00503-5.
+\bibitem{b11} J. C. Stein et al., “Genomes of 13 domesticated and wild rice relatives highlight genetic conservation, turnover and innovation across the genus Oryza,” Nature Genetics, vol. 50, no. 2, pp. 285–296, Jan. 2018, doi: 10.1038/s41588-018-0040-0.
+\bibitem{b12} D. Pandey, K. Niwaria, and H. Chourasia, “Machine Learning Algorithms: A Review,” International Research Journal of Engineering and Technology, vol. 06, no 02. pp. 916. 2019. p-ISSN: 2395-0072. 
+\bibitem{b13} B. Yang, F. Liu, C. Ren, Z. Ouyang, Z. Xie, X. Bo, and W. Shu, “Biren: Predicting enhancers with a deep-learning-based model using the DNA sequence alone,” Bioinformatics, vol. 33, no. 13, pp. 1930–1936, 2017. doi: 10.1093/bioinformatics/btx105
+\bibitem{b14} L. Zeng, Y. Liu, Z.-G. Yu, and Y. Liu, “iEnhancer-DLRA: identification of enhancers and their strengths by a self-attention fusion strategy for local and global features,” Briefings in Functional Genomics, vol. 21, no. 5, pp. 399–407, Aug. 2022, doi: 10.1093/bfgp/elac023.  
+
+\end{thebibliography}
+
+\end{document}
